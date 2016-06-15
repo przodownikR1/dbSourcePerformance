@@ -1,8 +1,5 @@
 package pl.java.scalatech.generator;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -13,7 +10,6 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -67,34 +63,8 @@ public class RandomPersonService implements Generator<User>{
   public String random(List<String> list){
     return list.get(random.nextInt(list.size()));
   }
-  @Test
-  public void test(){
-      RandomPersonService rps= new RandomPersonService();
-      List<User> users = rps.generate(20).collect(Collectors.toList());
-      log.info(".... {}",users);
-  }
 
-  @Test
-  public void shouldReadFromFile(){
-   Path  pathFemale = Paths.get("src/main/resources/female_names.txt");
-   try {
-    readLineByLine(pathFemale, s->s.startsWith("A"), log, s->log.info("{}",s));
-} catch (IOException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-  }
 
-  @Test
-  public void shouldRetrieveFemaleFromFile(){
-   Path  pathFemale = Paths.get("src/main/resources/female_names.txt");
-   try {
-      log.info("{}",retrieveNames(pathFemale, s->s.startsWith("A"), log));
-} catch (IOException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-  }
 
 
 @Override

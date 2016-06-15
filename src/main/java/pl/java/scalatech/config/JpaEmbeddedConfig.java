@@ -6,9 +6,6 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import lombok.extern.slf4j.Slf4j;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.orm.jpa.EntityScan;
@@ -26,6 +23,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+
+import lombok.extern.slf4j.Slf4j;
 
 @EnableJpaRepositories(basePackages = "pl.java.scalatech.repository")
 @EntityScan(basePackages = "pl.java.scalatech.entity")
@@ -57,15 +56,6 @@ public class JpaEmbeddedConfig {
     @Value("${hibernate.hbm2ddl.auto}")
     private Boolean hbm2ddlAuto;
 
-    @Value("${boneCp.partition.count}")
-    private int partitionCount;
-
-    @Value("${boneCp.partition.minConnectionsPerPartition}")
-    private int minConnectionsPerPartition;
-
-    @Value("${boneCp.partition.maxConnectionsPerPartition}")
-    private int maxConnectionsPerPartition;
-
     @Value("${hibernate.show.sql}")
     private Boolean showSql;
 
@@ -82,7 +72,7 @@ public class JpaEmbeddedConfig {
      * }
      */
 
-   
+
 
     @Bean
     public DataSource dataSource() {
@@ -130,6 +120,6 @@ public class JpaEmbeddedConfig {
         return hibernateJpaVendorAdapter;
     }
 
-   
+
 
 }

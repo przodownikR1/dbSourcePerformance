@@ -39,8 +39,8 @@ public class HikariCPConfiguration {
     @Value( "${spring.datasource.password}" )
     public String password;
 
-    @Value( "${spring.datasource.driver-class-name}" )
-    public String driverClassName;
+    //@Value( "${spring.datasource.driver-class-name  ?: org.h2.Driver}" )
+    public String driverClassName = "org.h2.Driver";
 
 
 

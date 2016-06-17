@@ -13,16 +13,10 @@
 	
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%.-1level|%-40.40logger{0}|%msg%n</pattern>
+			<pattern>[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger{36}  %msg%n</pattern>
 		</encoder>
 	</appender>
-	
-	<appender name="console2" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%L - %msg \(login: %X{login}\) %n</pattern>
-        </encoder>
-    </appender>
-
+		
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>dbPerformance.log</file>
@@ -39,17 +33,10 @@
 		</encoder>
 	</appender>
 
-
-
-
-	<logger name="org.mortbay.log" level="INFO" />
- 
     <logger name="pl.java.scalatech" level="info" />
-    <logger name="org.springframework" level="info" />
+    <logger name="org.springframework" level="warn" />
     <logger name="org.springframework.data" level="warn" />
-    <logger name="org.springframework.security" level="info" />
- 
-
+    
 	<root level="info">
 		<appender-ref ref="console" />		
 	</root>

@@ -1,6 +1,4 @@
-package pl.java.scalatech.domain.sample;
-
-import java.time.LocalDate;
+package pl.java.scalatech.domain.one2one;
 
 import javax.persistence.Entity;
 
@@ -11,17 +9,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.java.scalatech.domain.AbstractEntity;
+
 @Entity
 @Data
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
 @GenericGenerator(name="genId", strategy="increment")
-public class Car extends AbstractEntity{
+public class Wife extends AbstractEntity{
 
-    private String name;
-
-    private LocalDate productionDate;
-
-    private String color;
+	private String name;
 }

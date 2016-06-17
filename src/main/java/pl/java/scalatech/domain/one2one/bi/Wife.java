@@ -1,8 +1,8 @@
-package pl.java.scalatech.domain.sample;
+package pl.java.scalatech.domain.one2one.bi;
 
-import java.time.LocalDate;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,17 +11,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.java.scalatech.domain.AbstractEntity;
+
 @Entity
 @Data
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
 @GenericGenerator(name="genId", strategy="increment")
-public class Car extends AbstractEntity{
+public class Wife extends AbstractEntity{
 
-    private String name;
+	private String name;
 
-    private LocalDate productionDate;
-
-    private String color;
+	@OneToOne(mappedBy="wife",cascade=CascadeType.PERSIST)
+    private Husband husband;
 }

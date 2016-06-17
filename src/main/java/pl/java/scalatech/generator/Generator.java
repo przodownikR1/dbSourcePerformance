@@ -33,4 +33,11 @@ public interface Generator<T> {
 
      }
 
+     public default List<String> retrieveNames(Path path,Predicate<String> filter) throws IOException {
+         try (Stream<String> filteredLines = Files.lines(path)) {
+             return filteredLines.map(s -> s.trim()).filter(filter).distinct().collect(Collectors.toList());
+         }
+
+     }
+
 }

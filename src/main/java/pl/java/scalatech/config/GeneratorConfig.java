@@ -1,5 +1,7 @@
 package pl.java.scalatech.config;
 
+import java.util.Random;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +9,11 @@ import org.springframework.core.io.Resource;
 @Configuration
 @ComponentScan(basePackages="pl.java.scalatech.generator")
 public class GeneratorConfig {
+    @Bean
+    public Random random(){
+        return new Random();
+    }
+
     @Bean
     public Resource carsResource(){
         return new org.springframework.core.io.ClassPathResource("car.txt");

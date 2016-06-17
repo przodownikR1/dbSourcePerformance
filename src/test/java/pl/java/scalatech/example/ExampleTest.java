@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={TestJpaConfig.class})
 @Slf4j
-@ActiveProfiles(value={"logger","dev"})
+@ActiveProfiles(value={"logger","dev","example"})
 public class ExampleTest {
     @Test
     public void shouldBootstap() {

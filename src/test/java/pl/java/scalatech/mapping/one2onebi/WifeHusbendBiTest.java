@@ -20,7 +20,7 @@ import pl.java.scalatech.repository.mapping.one2one.bi.HusbandBiRepo;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { TestJpaConfig.class })
 @Slf4j
-@ActiveProfiles(value = { "logger", "dev" })
+@ActiveProfiles(value = { "logger", "dev","one2onebi" })
 @Transactional
 public class WifeHusbendBiTest {
     @Autowired

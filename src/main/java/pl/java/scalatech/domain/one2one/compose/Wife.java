@@ -1,6 +1,5 @@
 package pl.java.scalatech.domain.one2one.compose;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
@@ -9,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @Builder
